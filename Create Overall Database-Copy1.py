@@ -5,6 +5,7 @@ import pandas as pd
 from fuzzywuzzy import process, fuzz
 import re
 
+# change xyz to your file type (obviously!)
 df1 = pd.read_xyz("sample file1.xyz") # lowest priority dataframe
 df2 = pd.read_xyz("sample file2.xyz") # middle ------------------
 df3 = pd.read_xyz("sample file3.xyz") # highest ------------------
