@@ -9,7 +9,7 @@ df1 = pd.read_xyz("sample file1.xyz") # lowest priority dataframe
 df2 = pd.read_xyz("sample file2.xyz") # middle ------------------
 df3 = pd.read_xyz("sample file3.xyz") # highest ------------------
 
-def is_match(name1, name2, tolerance = 75):
+def is_match(name1, name2, tolerance = 75): # change tolerance to, after testing out extensive examples, the tolerance that, if exceeded, the strings (e.g. product names) should be considered a match
     if set(re.findall('\d+', name1)) == set(re.findall('\d+', name2)): # all numbers in string must be same
         if set([x.strip() for x in re.findall(r'(?i)\s[a-z]\s', name1 + ' ')]) == set([x.strip() for x in re.findall(r'(?i)\s[a-z]\s', name2 + ' ')]): # all isolated letters must be the same (vitamin d is too close to vitamin a otherwise)
             score = fuzz.token_sort_ratio(name1, name2)
